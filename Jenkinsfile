@@ -3,23 +3,16 @@ pipeline {
 
     stages {
 
-        stage('build') {
+        stage('Clone Repository') {
             steps {
-                echo 'building'
+                git 'https://github.com/git/git.git'
             }
         }
 
-        stage('test') {
+        stage('Verify Files') {
             steps {
-                echo 'testing'
+                sh 'ls -lrt'
             }
         }
-
-        stage('deploy') {
-            steps {
-                echo 'deployment'
-            }
-        }
-
     }
 }
